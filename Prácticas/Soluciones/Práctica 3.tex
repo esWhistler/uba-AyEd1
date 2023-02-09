@@ -163,10 +163,9 @@ $\rightarrow$ post2, pero no al revés.
             \pre{True}
             \post{(\forall i: \ent)(0 \leq i < |l| \implicaLuego ((i \bmod 2 = 1 \wedge result[i] = 2.l[i]) \vee (i \bmod 2 = 0 \y result[i] = l[i]))}
     \end{proc}
-    \item   \begin{proc}{getDivisores}{\In{x: \ent}, \Out{result: \ent}}{}
-            \pre{x \neq 0}
-            \post{(\forall i: \ent)(0 \leq i < |result| \implicaLuego ((x \bmod result[i] = 0) \wedge result[i] > 0 
-            \wedge (\forall j: \ent)(0 \leq j < |result| \implicaLuego result[i] \neq result[j])))}
+    \item   \begin{proc}{getDivisores}{\In{x: \ent}, \Out{result: \TLista{\ent}}}{}
+            \pre{True}
+            \post{(\forall y: \ent)(\IfThenElse{x \bmod y = 0 \y y > 0}{\#apariciones(result, y) = 1}{y \notin result})}
     \end{proc}
 \end{enumerate}
 
