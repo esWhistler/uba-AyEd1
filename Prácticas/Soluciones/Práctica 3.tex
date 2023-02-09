@@ -61,7 +61,13 @@
     \item $l = \TLista{1,2,3}$ y $suma = 7$
     \item El problema con los límites es que no determina si un valor intermedio resulta producto de la suma de
     un subconjunto de elementos de $l$. Ej. $l = \TLista{1,3}$ y $suma = 2$
-    \item TODO
+    \item 
+    	\begin{proc}{elementosQueSumen}{\In l: \TLista{\ent}, \In suma: \ent, \Out result: \TLista{\ent}}{}
+    	\pre{(\exists m: \TLista{\ent})(esSubseq(m, l) \yLuego \sum_{i=0}^{\longitud{m}-1} l[i] = suma)}
+    	\post{(\forall x: \ent)(x \in result \implica \#apariciones(x, result) \leq \#apariciones(x, l)) \y suma = \sum_{i=0}^{\longitud{result}-1} result[i]}
+    	\end{proc}
+    
+    	\pred{esSubseq}{s: \TLista{T}, t: \TLista{T}}{(\forall elem: T)(\#apariciones(s, elem) \leq \#apariciones(t, elem))}
 \end{enumerate}
 
 \subsection{Ejercicio 3}
