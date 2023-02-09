@@ -156,7 +156,7 @@ $\rightarrow$ post2, pero no al revés.
     \end{proc}
     \item   \begin{proc}{numericos}{\In{l: \TLista{Char}}, \Out{result: \TLista{Char}}}{}
             \pre{True}
-            \post{(\forall i:\ent)(0 \leq i < |result| \implicaLuego result[i] \in digitos)}
+            \post{(\forall c:Char)(c \in digitos \implicaLuego \#apariciones(l, c) = \#apariciones(result, c)) \y (c \in result \implica c \in digitos)}
     \end{proc}\\
     digitos = $\langle '0', '1', '2', '3', '4', '5', '6', '7', '8', '9' \rangle$
     \item   \begin{proc}{duplicaPosicionesImpares}{\In{l: \TLista{\float}}, \Out{result: \TLista{\float}}}{}
