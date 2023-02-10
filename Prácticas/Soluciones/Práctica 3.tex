@@ -215,12 +215,15 @@ Sí, en ambos la precondición es demasiado restrictiva. Se está sobreespecific
         \post{(x = \sum_{i=0}^{|res|-1}res[i]_0^{res[i]_1})\\ \wedge \\ (\forall i: \ent)(0\leq i < |res| \implicaLuego 
         (esPrimo(res[i]_0) \wedge res[i]_1\geq 1))\\ \wedge \\(\forall j: \ent)(0 \leq j < |res|-1 \implicaLuego res[i]_0 < res[i+1]_0)}
         \end{proc}
-    \item TODO
+    \item \begin{proc}{diferenciaEntreExtremos}{\In s: \TLista{\float}, \Out res: \float}{}
+    	\pre{\longitud{s} \geq 2}
+    	\post{(\exists i,j: \float)(i,j \in s \y (\forall a: \float)(a \in s \implicaLuego i \leq a \leq j) \y res = j - i)}
+    	\end{proc}
     \item \aux{cantQueDivide}{x: \ent, l: \TLista{\ent}}{\ent}{\sum_{i = 0}^{|l|-1}\IfThenElse{l[i] \bmod x=0}{1}{0}}
         \begin{proc}{divideAMasElementos}{\In l: \TLista{\ent}, \Out res: \ent}{}
         \pre{True}
         \post{res \in l \wedge (\forall i: \ent)(0 \leq i < |l| \implicaLuego cantQueDivide(l[i], l) < cantQueDivide(res, l))}
-    \end{proc}
+		\end{proc}
 \end{enumerate}
 
 \subsection{Ejercicio 15}
