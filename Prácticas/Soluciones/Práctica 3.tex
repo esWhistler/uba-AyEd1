@@ -221,8 +221,8 @@ Sí, en ambos la precondición es demasiado restrictiva. Se está sobreespecific
     	\end{proc}
     \item \aux{cantQueDivide}{x: \ent, l: \TLista{\ent}}{\ent}{\sum_{i = 0}^{|l|-1}\IfThenElse{l[i] \bmod x=0}{1}{0}}
         \begin{proc}{divideAMasElementos}{\In l: \TLista{\ent}, \Out res: \ent}{}
-        \pre{True}
-        \post{res \in l \wedge (\forall i: \ent)(0 \leq i < |l| \implicaLuego cantQueDivide(l[i], l) < cantQueDivide(res, l))}
+        \pre{\longitud{l} > 0}
+        \post{res \in l \wedge (\forall i: \ent)(0 \leq i < |l| \implicaLuego cantQueDivide(l[i], l) \leq cantQueDivide(res, l))}
 		\end{proc}
 \end{enumerate}
 
