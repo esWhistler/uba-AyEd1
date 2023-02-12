@@ -256,6 +256,11 @@ Sí, en ambos la precondición es demasiado restrictiva. Se está sobreespecific
             \pred{noHayRepetidos}{r: \TLista{\ent}}{
                 (\forall x: \ent)(\#apariciones(x, r) \leq 1)
             }
+        
+	\item	\begin{proc}{interseccion}{\In s, t: \TLista{T}, \Out res: \TLista{T}}{}
+			\pre{True}
+			\post{(\forall elem: T)(\#apariciones(res, elem) = min(\#apariciones(s, elem), \#apariciones(t, elem)))}
+			\end{proc}
                 
 \end{enumerate}
 
