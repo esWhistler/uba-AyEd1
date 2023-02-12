@@ -285,9 +285,13 @@ Sí, en ambos la precondición es demasiado restrictiva. Se está sobreespecific
     	\post{\longitud{res} = \longitud{s} + 1 \yLuego (\forall i: \ent)(0 \leq i < \longitud{res} \implicaLuego res[i] = subseq(s, 0, i))}
     \end{proc}
     \item   \begin{proc}{secuenciaConElMayorValor}{\In s: \TLista{\TLista{\ent}}, \Out res: \TLista{\ent}}{}
-            \pre{True}
-            \post{res \in s \wedge (\exists i: \ent)(\forall j: \ent)(0 \leq i < |res| \wedge 0 \leq j < |s| \implicaLuego s[j] \leq res[i])} 
+            \pre{\longitud{s} > 0}
+            \post{res \in s \y (\forall l: \TLista{\ent})(l \in s \implica contieneElMayorValorEntre(res, l))} 
             \end{proc}
+        
+        \pred{contieneElMayorValorEntre}{s, t: \TLista{\ent}}
+        {(\forall k: \ent)(k \in t \implica (\exists l: \ent)(l \in s \y l \geq k))}
+        
     \item   \begin{proc}{interseccionMultiple}{\In ls: \TLista{\TLista{\float}}, \Out l: \TLista{\float}}{}
             \pre{True}
             \post{noHayRepetidos(l) \wedge (\forall x: \float)(\exists i: \ent)(0\leq i < |ls| \yLuego \#apariciones(x, ls[i] > 0) \implicaLuego x \in l)} 
