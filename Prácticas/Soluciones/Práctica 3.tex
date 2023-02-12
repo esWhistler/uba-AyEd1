@@ -280,7 +280,10 @@ Sí, en ambos la precondición es demasiado restrictiva. Se está sobreespecific
 	
 	\pred{sinKeysRepetidos}{d: \TLista{T \times U}}
 	{(\forall i,j \ent)((0 \leq i,j < \longitud{d} \y i \neq j) \implicaLuego d[i]_0 \neq d[j]_0)}
-    \item TODO. Respondido en consultas.
+    \item \begin{proc}{prefijos}{\In s: \TLista{T}, \Out res: \TLista{\TLista{T}}}{}
+    	\pre{True}
+    	\post{\longitud{res} = \longitud{s} + 1 \yLuego (\forall i: \ent)(0 \leq i < \longitud{res} \implicaLuego res[i] = subseq(s, 0, i))}
+    \end{proc}
     \item   \begin{proc}{secuenciaConElMayorValor}{\In s: \TLista{\TLista{\ent}}, \Out res: \TLista{\ent}}{}
             \pre{True}
             \post{res \in s \wedge (\exists i: \ent)(\forall j: \ent)(0 \leq i < |res| \wedge 0 \leq j < |s| \implicaLuego s[j] \leq res[i])} 
